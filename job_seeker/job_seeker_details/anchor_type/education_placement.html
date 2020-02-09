@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EDUCATION PLACEMENT - PLACEMENT - JOB SEEKER DETAILS</title>
+	<link rel="stylesheet" href="../../../css/style.css">
+</head>
+<body>
+	<div class="center">
+		<h1 class="center">EDUCATION PLACEMENT</h1>
+		<a href="../../../image/2018-05-24_15-55-51.png">
+			<img width="300px" style="border: 2px solid red" src="../../../image/2018-05-24_15-55-51.png" alt="">
+		</a>
+	</div>
+
+	<article>
+		<h2>Notification of Education - BUTTON</h2>
+		profiles/common/code_call/placement_jsa_new_ok.php
+		<div>
+			Despues de crear un 'DES PLACEMENT' al darle click en Notification of Education button <br>
+			aparece el formulario: <b>Notitfication Of Education Form</b>
+			que por alguna razon en mi END no esta funcionando, esto deberia crear un reguistro en la tabla <b>ig_form_details</b> <br>
+			y arroja el siguiente error: <br>
+<pre>
+[{"param":"","status":0},{"param":"There has been a low level error in an attempted database insert. INSERT INTO ig_jobseeker_name (jobseeker_name,jobseeker_id,jobseeker_address,jobseeker_suburb,jobseeker_postcode,jobseeker_phone,jobseeker_mobile,jobseeker_email,jobseeker_stream,jobseeker_consultant_name,jobseeker_site_phone,jobseeker_site_name,jobseeker_site_fax,provider_name,provider_address,provider_suburb,provider_postcode,contact_person,provider_phone,provider_email,provider_mobile,qualification_type,provider_fax,course_name,placement_type,semester_one_start_date,semester_one_end_date,semester_two_start_date,semester_two_end_date,study_load,contact_hours_pw,activity_id,non_contact_hours_pw,transition,courseapproved,outcomefee,shortcourse,partreq,ig_form_details.job_seeker_id,ig_form_details.placement_id,ig_form_details.form_id,ig_form_details.form_detail_current,eduinstitutioncontact) VALUES ('EEE_DES_0','8746985','','','','','','','NA',NULL,NULL,'BEMELB1',NULL,'','','','','','','','','','','','1','','','','','','','','',NULL,'0','0','0','1','232363','499878','2','1','0')<br \/>Table 'iignite_demo1.ig_jobseeker_name' doesn't exist","status":9}]<br />
+<b>Fatal error</b>:  Uncaught exception 'Exception' with message 'There has been a low level error in an attempted database insert. INSERT INTO ig_jobseeker_name (jobseeker_name,jobseeker_id,jobseeker_address,jobseeker_suburb,jobseeker_postcode,jobseeker_phone,jobseeker_mobile,jobseeker_email,jobseeker_stream,jobseeker_consultant_name,jobseeker_site_phone,jobseeker_site_name,jobseeker_site_fax,provider_name,provider_address,provider_suburb,provider_postcode,contact_person,provider_phone,provider_email,provider_mobile,qualification_type,provider_fax,course_name,placement_type,semester_one_start_date,semester_one_end_date,semester_two_start_date,semester_two_end_date,study_load,contact_hours_pw,activity_id,non_contact_hours_pw,transition,courseapproved,outcomefee,shortcourse,partreq,ig_form_details.job_seeker_id,ig_form_details.placement_id,ig_form_details.form_id,ig_form_details.form_detail_current,eduinstitutioncontact) VALUES ('EEE_DES_0','8746985','','','','','','','NA',NULL,NULL,'BEMELB1',NULL,'','','','','','','','','','','', in <b>/home/sroot/app/iignite/framework/includes/functions.error.php</b> on line <b>21</b><br />
+
+</pre>
+		</div>
+	</article>
+</body>
+</html>

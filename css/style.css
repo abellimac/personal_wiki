@@ -1,0 +1,64 @@
+body {
+	font-family: arial;
+	/*font-size: 11pt;*/
+}
+
+h1,h2,h3,h4 {
+	margin-bottom: 0;
+}
+
+h3, h4 {
+	margin: 0;
+}
+
+ul,ol  {
+	margin: 0;
+}
+
+ol li{
+	font-size: 20px;
+}
+
+li code {
+	font-size: 16px;
+}
+
+table {
+	font-size: 14px;
+}
+
+.word-break {
+	word-wrap: break-word;
+}
+
+article ul {font-size: 20px}
+
+.red {
+	background: red;
+	color: yellow;
+}
+
+.font-9 {font-size: 8px}
+.font-9 {font-size: 9px}
+.font-10 {font-size: 10px}
+.font-11 {font-size: 11px}
+.font-12 {font-size: 12px}
+.font-13 {font-size: 13px}
+.font-14 {font-size: 14px}
+.font-15 {font-size: 15px}
+.font-17 {font-size: 17px}
+.font-18 {font-size: 18px}
+.font-19 {font-size: 19px}
+.font-20 {font-size: 20px}
+.font-21 {font-size: 21px}
+.font-22 {font-size: 22px}
+.font-23 {font-size: 23px}
+.font-24 {font-size: 24px}
+
+.mgl-10 {
+	margin-left: 10px;
+}
+
+.center {
+	text-align: center;
+}

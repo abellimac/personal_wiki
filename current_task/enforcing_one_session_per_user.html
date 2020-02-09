@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IIGNITE - Enforcing one session per user</title>
+</head>
+<body>
+	<h1 style="text-align: center;">
+		IIGNITE - Enforcing one session per user
+	</h1>
+	<ul>
+		<li>
+			New Files
+			<ul>
+				<li>
+					profiles/common/templates/force_one_user.tpl
+				</li>
+				<li>
+					profiles/common/code_interface/force_one_user.php
+				</li>
+				<li>
+					profiles/common/code_call/force_one_user_ok.php
+				</li>
+			</ul>
+		</li>
+		<li>
+			Modify Files
+			<ul>
+				<li>
+					framework/includes/dbSession.php
+				</li>
+				<li>
+					framework/includes/functions.user.php
+				</li>
+				<li>
+					profiles/common/config/requests.config
+				</li>
+				<li>
+					profiles/common/css/css.css
+				</li>
+				<li>
+					profiles/common/templates/_css.tpl
+				</li>
+				<li>
+					<div style="border: 3px solid green; display: inline-block;">
+						profiles/common/code_interface/jobseeker_buttons.php
+					</div>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Modify cache Files 
+			<ul>
+				<li>
+					cache/profiles-1common-1config-1requests.config-1force_one_user.xml_tree_node
+				</li>
+				<li>
+					cache/profiles-1common-1config-1requests.config-1force_one_user_ok.xml_tree_node
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h3>
+		profiles/common/templates/force_one_user.tpl
+	</h3>
+	<div>
+		This Template shows user that another browser is using their account
+		<br>
+		<img style="border: 5px solid red" src="..\image\2018-05-20_1707.png" alt="">
+	</div>
+
+	<h3>
+		framework/includes/dbSession.php
+	</h3>
+	<div>
+		Property added
+		<ul>
+			<li>
+				private $preventwrite = false;
+			</li>
+		</ul>
+		Functions added
+		<ul>
+			<li>
+				public function prevent_write()
+			</li>
+			<li>
+				public static function loadSessionExpireTime()
+			</li>
+			<li>
+				public static function isUserLoggedInOtherSession($email)
+			</li>
+			<li>
+				public static function deleteOtherSessions($email)
+			</li>
+			<li>
+				public static function checkUserSkippingOtherSessions($username, $profile, $objLog)
+			</li>
+		</ul>
+		Functions modified
+		<ul>
+			<li>
+				public function read($session_id) <br>
+				- Only the identation of the <i>'$sRead=$dbm->select...'</i> was changed (line code 74)
+			</li>
+			<li>
+				public function fixConfig() <br>
+				- This function is now a STATIC function <br>
+				<i>
+					From 'public function fixConfig()' to 'public static function fixConfig()'
+				</i>
+			</li>
+			<li>
+				public function write($session_id, $session_data)
+				<ul>
+					<li>
+						if ($this->preventwrite) return;
+					</li>
+					<li>
+						$data["system_session_data.email" ]         = $dbm->ems($_SESSION['USERNAME']); <br>
+						<i> The value of the "system_session_data.email" field it was added to INSERT and UPDATE</i>
+					</li>
+				</ul>
+			</li>
+			<li>
+				public static function checkSession($session_id) <br>
+				self::fixConfig(); <br>
+				<i>
+					FROM '$this->fixConfig();' TO 'self::fixConfig();'
+				</i>
+			</li>
+		</ul>
+	</div>
+
+	<h3>
+		framework/includes/functions.user.php
+	</h3>
+	<div>
+		Function modified
+		<ul>
+			<li>
+				function get_login_force_question_type($user_id) <br>
+				- users.email field was added to check if another browser is logged with the current login
+				<br>
+				<img src="../image/2018-05-20_1755.png" alt="">
+			</li>
+		</ul>
+	</div>
+
+	<h3>
+		profiles/common/config/requests.config
+	</h3>
+	<div>
+		2 functions was added to this file
+		<ul>
+			<li>
+				force_one_user
+			</li>
+			<li>
+				force_one_user_ok
+			</li>
+		</ul>
+	</div>
+	<h3>
+	<div style="border: 3px solid green; display: inline-block;">
+		profiles/common/code_interface/jobseeker_buttons.php
+	</div>
+	</h3>
+	<div>
+		<img src="..\image\2018-05-21_1439.png" alt="">
+	</div>
+</body>
+</html>

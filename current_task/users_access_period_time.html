@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IIGNITE - USER ENABLE HISTORY</title>
+</head>
+<body>
+	<h1 style="text-align: center;">
+		IIGNITE - USER ENABLE HISTORY
+	</h1>
+	<h2>
+		RECORD STATE OF USER AND SCRIPT TO RECORD CURRENT USER IN (ig_user_enable_history)
+	</h2>
+	<div>
+		<div>
+			commit: <br>
+			f241d16b703f30306292a7a1721bb2a1c8da41bf <br>
+			Record events in user_enable_history and create script to record current users
+		</div>
+		<ul>
+			<li>
+				New Files
+				<ul>
+					<li>dbupgrade/20180528_drop_ig_user_enable_history_constraint.txt</li>
+					<li>scripts/user_enable_history_record_users_existing.php</li>
+				</ul>
+			</li>
+			<li>
+				Modify Files
+				<ul>
+					<li>framework/includes/functions.user.php</li>
+					<li>profiles/common/code_call/users_give_access.php</li>
+					<li>profiles/common/code_call/users_master_bd.php</li>
+					<li>profiles/common/code_call/users_new_finish.php</li>
+					<li>profiles/common/code_interface/user_disable_check.php</li>
+					<li>profiles/common/config/db.config</li>
+				</ul>
+			</li>
+			<li>
+				Modify cache Files 
+				<ul>
+					<li>cache/profiles-1common-1config-1boxes.config.xml_tree_format</li>
+					<li>cache/profiles-1common-1config-1db.config.xml_list</li>
+					<li>cache/profiles-1common-1config-1reports.config.xml_tree_format</li>
+				</ul>
+			</li>
+		</ul>
+		<div>
+			<h3>The following changes record the events of user date (created, disabled, enabled and deleted) in ig_user_enable_history table</h3>
+			<ul>
+					<li>profiles/common/code_call/users_give_access.php</li>
+					<li>profiles/common/code_call/users_master_bd.php</li>
+					<li>profiles/common/code_call/users_new_finish.php</li>
+					<li>profiles/common/code_interface/user_disable_check.php</li>
+			</ul>
+		</div>
+		<div>
+			<h3>dbupgrade/20180528_drop_ig_user_enable_history_constraint.txt</h3>
+			<div>
+				The Foreing Key was deleted because it prevented the user from being deleted from the ig_user table.<br>
+				The 'On Delete' option prevented that the user was deleted. <br>
+				and other reason why it was removed is that at this moment the users are physically deleted, I think we need to talk about that<br>
+				because when a user is deleted, we don't have data to show about this user like (user, first name) in the USER ENABLE HISTORY report
+			</div>
+		</div>
+		<div>
+			<h3>scripts/user_enable_history_record_users_existing.php</h3>
+			<div>
+				This script is reponsible for record the current users enabled and disabled in ig_user_enable_history <br>
+				When users.userstatus is 0 save user_enable_history.ueh_event_id = 2 (enabled)<br>
+				When users.userstatus is 1 save user_enable_history.ueh_event_id = 3 (disabled)<br>
+				<!-- <img src="..\image\2018-06-03_1800.png" alt=""> -->
+			</div>
+		</div>
+	</div>
+<br><br>
+	<h2>
+		SCRIPT TO GENERATE THE USER ENABLE HISTORY REPORT
+	</h2>
+	<div>
+		<div>
+			Commit: <br>
+			fa6e7f88ba8e71571fbd7377a0defab081e2246a <br>
+			<br>
+		</div>
+		New File
+		<ul>
+			<li>scripts/report_user_access.php</li>
+		</ul>
+		<h3>scripts/report_user_access.php</h3>
+		<div>
+			The way to call this report is the following: <br>
+			<b>php scripts/report_user_access.php 2018/06/04 2018/06/06</b> <br><br>
+
+			At this moment this script is generate a .zip file with a .cvs file
+			and it's saving in: <br>
+			download_tmp_folder = "/home/sroot/app/iignite/temp/ <br>
+			name_of_profile = iignite_demo1 (for example); <br>
+			<b>download_tmp_folder + name_of_profile/report_user_activities/</b> <br>
+			but the path can be modified if necesary
+		</div>
+		<div>
+		
+		<h3>THE SQL SCRIPT</h3>
+		<div>
+			The next data are showed in this script <br>
+			The script was fixed with the corrections that you mention in the email <br>
+			<img src="../image/2018-06-03_1839.png" alt="">
+		</div>	
+<pre>
+SET @date_start = '1528072808', @date_end = '1528159208';
+
+SELECT
+	CONCAT(usr.first_name, ' ', usr.last_name) as 'User Name',
+	usr.email,
+	(
+		SELECT DATE_FORMAT(FROM_UNIXTIME(uehcd.ueh_datetime), '%Y-%m-%d %H:%i:%s')
+		FROM ig_user_enable_history uehcd
+		WHERE uehcd.ueh_event_id = 1
+		AND uehcd.user_id = uehmain.user_id
+		GROUP BY uehcd.user_id
+	)AS 'Creation Date',
+	CASE
+		WHEN uehmain.ueh_event_id IN (2)
+		THEN DATE_FORMAT(FROM_UNIXTIME(uehmain.ueh_datetime), '%Y-%m-%d %H:%i:%s')
+		ELSE NULL END AS 'Last Activation Date',
+	CASE
+		WHEN uehmain.ueh_event_id IN (3,4)
+		THEN DATE_FORMAT(FROM_UNIXTIME(uehmain.ueh_datetime), '%Y-%m-%d %H:%i:%s')
+		ELSE NULL END AS 'Last Desactivation Date'
+	FROM
+				ig_user_enable_history uehmain LEFT JOIN ig_users usr ON uehmain.user_id = usr.user_id
+	WHERE
+	uehmain.ueh_id IN (
+						SELECT ueh_id
+						FROM ig_user_enable_history
+						WHERE ueh_event_id IN (1,2) AND ueh_datetime < @date_start
+						UNION
+						SELECT ueh_id
+						FROM ig_user_enable_history
+						WHERE ueh_event_id IN (1,2) AND ueh_datetime < @date_end
+						UNION
+						SELECT ueh_id
+						FROM ig_user_enable_history
+						WHERE ueh_event_id IN (1,2,3,4)
+						AND ueh_datetime >= @date_start AND ueh_datetime <= @date_end)
+	AND
+	uehmain.ueh_id IN(SELECT MAX(ig_user_enable_history.ueh_id) FROM ig_user_enable_history GROUP BY ig_user_enable_history.user_id)
+</pre>
+
+			<div>
+				<h3>SOME QUESTIONS</h3>
+				<ol>
+					<li>
+						When a user is deleted within the range, it doesn't exist data like User Name and Email to show in the Report <br>
+						This user must be shown with User Name and Email null or empty in the report?
+					</li>
+					<li>
+						What is the exact path where these report files should be generated?
+					</li>
+					<li>
+						And the last one is: What is the 'Dashboard project'? <br>
+						I found this screen about Dashboard but I'm not sure <br>
+						<img src="../image/2018-06-03_1856.png" alt="">
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

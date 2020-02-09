@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ENFORCING ONE SESSION PER USER</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<h1 class="center">ENFORCING ONE SESSION PER USER</h1>
+
+	<article>
+		<h3>ESCAPE THE "FORCE ONE USER"</h3>
+		<ol>
+			<li>
+				profiles/common/templates/main.tpl <br>
+				<code>request_table("table_jobseeker_list"); <b>#356</b></code>
+			</li>
+			<li>
+				profiles/common/config/requests.config <br>
+				<code>
+					function name="table_jobseeker_list" <b>#73</b>
+				</code>
+			</li>
+			<li>
+				profiles/common/code_interface/jobseeker_buttons.php <br>
+				<code>
+					dbSession::checkUserSkippingOtherSessions($_SESSION['USERNAME'], $profile, $Log_Performance); <b>#19</b>
+				</code>
+			</li>
+			<li>
+				framework/includes/dbSession.php <br>
+				<code>
+					public static function checkUserSkippingOtherSessions($username, $profile, $objLog) <b>#280</b>
+				</code>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>

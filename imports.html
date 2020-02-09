@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMPORTS</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- <h1 class="center">PASOS PARA CREAR UN IMPORT</h1> -->
+	<h1 class="center">Steps to create a new IMPORT</h1>
+<!-- 	<ul>
+		<li>
+			<a href="./imports/sub138.html">Sub138</a>
+		</li>
+	</ul> -->
+<a target="_blank" href="https://www.screencast.com/t/8ehQQDhGeau">image1</a><br>
+<a target="_blank" href="https://www.screencast.com/t/fftreH64I">image2</a><br>
+<a target="_blank" href="https://www.screencast.com/t/mNKm6s1f">image3</a><br>
+<a target="_blank" href="">image1</a><br>
+<a target="_blank" href="">image1</a><br>
+<a target="_blank" href="">image1</a><br>
+<pre>
+Interface User
+
+<!-- 1 - agregar la nueva opcion para cargar el archivo csv en "options_import_console.tpl" -->
+1 => Add new option to upload the csv in "options_import_console.tpl" (see image1)
+     The Import button (see image 2) has an onClick function "import_preview(this)" 
+     to set the current import name in div#import_file_flag.
+	 The value of this div#import_file_flag is used to call the correct function in request.config file.
+
+2 - al importar un archivo sub
+	llama a la funcion confirm_subfile_import() en iignite_api.js
+	dependiendo que de tipo de importacion es llamara a la funcion adecuada
+2 => When confirming an import with the button "Comfirm" (see image2)
+	 thie one call confirm_subfile_import() function in iignite_api.js file
+
+3 - crear la funcion en request.config
+el formato es parecido a este
+<function name="js_caseload_import_confirm">
+  <call name="name_of_the_call_confirm">
+</function>
+
+4 - creamos el archivo profiles/common/code_call/name_of_the_call_confirm.php
+5 - cramos la funcion php dentro del archivo creado name_of_the_call_confirm()
+el archivo y la funcion deben de tener el mismo nombre.
+
+6 - dentro de la nueva funcion creada se debe llamar a la funcion igConsts::loadImportLibs();
+
+7 - se deber crear un archivo dentro de la carpeta includes/imports
+    algo como esto "includes/imports/importSub138.php"
+    este es el archivo que se encargara de guardar cada fila del archivo importado
+
+8 - se debe agregar el nuevo archivo al array dentro del archivo de la funcion loadImportLibs functions.igconsts.php
+esta funcion hace un require_once al nuevo archivo creado.
+
+9 - en el archivo profiles/common/code_call/name_of_the_call_confirm.php creado anteriormente
+    tenemos dos opciones de procesar el archivo que se va a importar de acuerdo a la cantidad de filas que tiene el archivo
+    csv por ejemplo.
+	opcion 1 si la cantidad de fila del csv es MENOR a 3000
+		llama a una funcion en el archivo creado en includes/imports/importSubXXX.php
+		en este case se llamara importSubXXX(ruta_del_archivo_csv, user_id)
+		ejemplo "importSub138($_SESSION['CSV_SUB138_UPLOAD_DATA']['target_path'], $_SESSION['USER_ID']);" 
+
+
+      Sub022 = js_caseload_import_confirm
+      Sub023 = js_general_import_confirm
+      Sub026 = js_des_import_confirm
+      Sub027 = js_des_caseload_import_confirm
+      Sub029 = anchored_placement_import_confirm
+      Sub138 = claim_placement_import_confirm
+      Sub031 = placement_activity_import_confirm
+      Sub032 = work_experience_activity_import_confirm
+      Sub034 = des_placement_import_confirm
+      Sub040 = employer_import_confirm
+      Sub041 = vacancy_create_user_import_confirm
+      Sub309 = vacancy_referral_import_confirm
+      Sub043 = vacancy_report_import_confirm
+      Sub045 = jsa_appointment_contacts_import_confirm
+      Sub028 = employment_fund_import_confirm
+      Sub146 = des_appointment_contacts_import_confirm
+
+</pre>
+</body>
+</html>

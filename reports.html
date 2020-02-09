@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reports</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h1 class="center">REPORTS</h1>
+	<div class="center">
+		<img width="500px" src="image\2018-05-16_1944.png" alt="">
+	</div>
+	<article>
+		<h2>DB TABLE</h2>
+		<div>
+			Name = <b>ig_reports</b>
+		</div>
+	</article>
+
+	<article>
+		<h2>INTERFACE TABLE - ig_tables</h2>
+		<div>
+			Name = <b>ig_reports</b><br>
+			table_id = <b>18</b>
+		</div>
+	</article>
+
+	<article>
+		<h2>RUN REPORT</h2>
+		<ol>
+			<li>
+				profiles/common/config/requests.config <br>
+				<code>
+					function name="table_report_list" <b>#1425</b>
+				</code>
+			</li>
+			<li>
+				profiles/common/code_table/report_list.php <br>
+				<code>
+					
+				</code>
+			</li>
+			<li>
+				table_click(this,'reports');
+			</li>
+			<li>
+				profiles/common/config/requests.config <br>
+				<code>
+					function name="reports" <b>#1435</b>
+				</code>
+			</li>
+			<li>
+				profiles/common/tabs/reports.tabs <br>
+				<code>
+					function name="report_options_main" <b>#1430</b>
+				</code>
+			</li>
+			<li>
+				profiles/common/code_call/report_options_main.php <br>
+				Load the template from the Right Side <span class="font-12">(Number 3 in the main image)</span> <br>
+				<ul>
+					<li>
+						Each REPORT has its Template and Interface files: <br>
+						form = template_name.tpl <br>
+						interface = interface_name.tpl <br>
+						<table border="1">
+							<thead>
+								<tr style="background: #50b748">
+									<td>id</td>
+									<td>form</td>
+									<td>interface</td>
+									<td>name</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>9</td><td>report_invoices</td><td>report_form_invoice</td><td>Invoices</td></tr>
+								<tr><td>10</td><td>report_overdue_claim</td><td>report_overdue_claim</td><td>Overdue Claim Report</td></tr>
+								<tr><td>11</td><td>report_placement</td><td>report_placement</td><td>Placement Report/Education Report/NEIS Report</td></tr>
+								<tr><td>12</td><td>report_unassigned_js</td><td>report_unassigned_js</td><td>Unassigned Job Seekers Report</td></tr>
+								<tr><td>14</td><td>report_bonus</td><td>report_bonus</td><td>Bonus Report</td></tr>
+								<tr><td>15</td><td>report_ess_appointments</td><td>report_ess_appointments</td><td>	ESS Appointments</td></tr>
+								<tr><td>16</td><td>report_pps</td><td>report_pps</td><td>PPS Report</td></tr>
+								<tr><td>17</td><td>js_income_report</td><td>js_income_report</td><td>Job Seeker Income/expense</td></tr>
+								<tr><td>18</td><td>staff_timing_report</td><td>staff_timing_report</td><td>Staff Timing</td></tr>
+							</tbody>
+						</table>
+					</li>
+				</ul>
+			</li>
+		</ol>
+	</article>
+
+	<article>
+		<h2>TYPES OF REPORTS</h2>
+		<ul>
+			<li><a target="_blank" href="#">Invoices</a></li>
+			<li><a target="_blank" href="#">Overdue Claim Report</a></li>
+			<li><a target="_blank" href="#">Placement Report/Education Report/NEIS Report</a></li>
+			<li><a target="_blank" href="#">Unassigned Job Seekers Report</a></li>
+			<li><a target="_blank" href="#">Bonus Report</a></li>
+			<li><a target="_blank" href="#">ESS Appointments</a></li>
+			<li><a target="_blank" href="#">PPS Report</a></li>
+			<li><a target="_blank" href="#">Job Seeker Income/expense</a></li>
+			<li><a target="_blank" href="./reports/staff_timing.html">Staff Timing</a></li>
+		</ul>
+	</article>
+<br><br><br><br><br>
+</body>
+</html>

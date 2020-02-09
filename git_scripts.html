@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GIT</title>
+	<link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link rel="stylesheet" href="./css/prism.css">
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">USEFUL GIT COMMANDS</h1>
+		<article>
+			<div>
+				<div class="card-body">
+					<h5>Show author of commit:</h5>
+					<pre><code class="language-git">git log --author="name_author"</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Show For full path names of changed files:</h5>
+					<a href=".\image\2018-05-21_1611.png" target="_blanck" style="font-size: 12px">Show image</a>
+					<pre><code class="language-git">git log --name-only</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Show For full path names and status of changed files:</h5>
+					<pre><code class="language-git">git log --name-status</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Show For abbreviated pathnames and a diffstat of changed files:</h5>
+					<a href=".\image\2018-05-21_1616.png" target="_blanck" style="font-size: 12px">Show image</a>
+					<pre><code class="language-git">git log --stat</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Search word in Commit title with grep:</h5>
+					<pre><code class="language-git">git log --grep=6622_example</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Show all Change throught the commits:</h5>
+					<pre><code class="language-git">git log -p filePath</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Search word in All Commit and Branch:</h5>
+					<pre><code class="language-git">git log -S 'checkPermissionToBillOnCaseList' --source --all</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Como deshacer un commit (Ultimo comit):</h5>
+					<pre><code class="language-git">git reset --hard HEAD~1</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Descarta todos los cambios:</h5>
+					<pre><code class="language-git">git reset --hard</code></pre>
+				</div>
+			</div>
+			<div>
+				<div class="card-body">
+					<h5>Cambiar a una rama origin:</h5>
+					<pre><code class="language-git">git fetch</code></pre>
+					<pre><code class="language-git">git checkout -b 7206 origin/v6.2.10</code></pre>
+				</div>
+			</div>
+		</article>
+		
+	</div>
+<script src="./js/prism.js"></script>
+</body>
+</html>

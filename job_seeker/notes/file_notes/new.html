@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NEW - FILE NOTES</title>
+	<link rel="stylesheet" href="../../../css/style.css">
+</head>
+<body>
+	<div class="center">
+		<h1>NEW - BUTTON</h1>
+		<a href="..\..\..\image\2018-05-23_1130.png" target="_blanck">
+			<img width="100" src="..\..\..\image\2018-05-23_1130.png" alt="">
+		</a>
+	</div>
+
+	<article>
+		<h2>Ok - Button</h2>
+		<div>
+			profiles/common/code_call/notes_new_ok.php
+		</div>
+	</article>
+	<article>
+		<h2>DATA TO SAVE</h2>
+		<div>
+			<ul>
+				<li>
+					<div class="font-12">
+						'notes.note_title' => 'Title',<br>
+						'notes.note_description' => 'Note Description',<br>
+						<span class="red">'notes.placement_id' => NULL,</span><br>
+						'notes.note_date_created' => '22-05-2018',<br>
+						'notes.note_time_created' => '22-05-2018 11:36 am',<br>
+						'notes.date_of_note' => '22-05-2018',<br>
+						'notes.note_system' => '0',<br>
+						'notes.note_created_by' => 'Renato Parletta',<br>
+						'notes.job_seeker_id' => '230909',<br>
+						'notes.note_type' => '0',<br>
+						'notes.paid' => '1',<br>
+						'notes.note_time_spent' => 0.10000000000000001,<br>
+						<span class="red">'notes.js_employer_id' => NULL,</span><br>
+						'notes.employer_name' => NULL,<br>
+	  				</div>
+	  				<div>
+	  					<a class="font-12" href="..\..\..\image\2018-05-23_1131.png">Show ids in form</a>
+	  				</div>
+				</li>
+			</ul>
+			<div class="font-12">
+				<b>Nota:</b> <br>
+				Fields with red are considered important fields.
+			</div>
+		</div>
+	</article>
+	<article>
+		<h2>
+			IMPORTANT FIELDS
+		</h2>
+		<div>
+			<ul>
+				<li>
+					notes.placement_id <br>
+					<div class="font-14 mgl-10">
+						if (notes.placement_id == 0) <b>notes.placement_id = NULL;</b> <br>
+						if (notes.placement_id == '') <b>notes.placement_id =  NULL;</b>
+					</div>
+				</li>
+				<li>
+					notes.js_employer_id <br>
+					<div class="font-14 mgl-10">
+						<ol>
+							<li class="font-14">
+								if <b>js_employer_id</b> has data <br>
+								get <b>employers.employer_employer_id</b> by <b>js_employer_id</b><br>
+								save <b>notes.js_employer_id = employers.employer_employer_id</b><br>
+								save <b>notes.employer_name = employer_name</b> (employer_name value from Interface)<br>
+								-------------------------------------------------------------
+							</li>
+							<li class="font-14">
+								if <b>js_employer_id</b> is <b>NULL</b> <br>
+								if <b>employer_name</b> has data <br>
+								get <b>employers.employer_employer_id</b> by <b>employer_name</b><br>
+								save <b>notes.js_employer_id = employers.employer_employer_id</b><br>
+								save <b>notes.employer_name = employer_name</b> (employer_name value from Interface)<br>
+								-------------------------------------------------------------
+							</li>
+							<li class="font-14">
+								if <b>js_employer_id</b> is <b>NULL</b> <br>
+								if <b>employer_name</b> is <b>NULL</b><br>
+								save <b>notes.js_employer_id</b> = NULL<br>
+								save <b>notes.employer_name</b> = NULL
+							</li>
+						</ol>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</article>
+<!-- 	<article>
+		<ul>
+			<li>
+				notes.note_time_created <br>
+				Concatena:
+				<br>
+				Created Date + Created Time (22-05-2018 11:30 am)
+			</li>
+			<li>
+				notes.note_created_by <br>
+			</li>
+			<li>
+				notes.note_time_spent <br>
+				<div class="font-12"> 
+					$min=intval($rq['notes.note_time_spent']%60);if($min< 10 ){$min='0'.$min;} <br>
+					$hour=intval($rq['notes.note_time_spent']/60);<br>
+					$time=($hour.':'.$min); <br>
+					// $time1=floatval($time);<br>
+					$time1=$db->_convert_in_duration($time); <br>
+				</div>
+			</li>
+			<li>
+				notes.js_employer_id <br>
+				<div class="font-12">
+					valores posibles <br>
+					employer_id and null
+				</div>
+			</li>
+			<li>
+				notes.job_seeker_id <br>
+				<div class="font-12">
+					este valor es obligatorio
+				</div>
+			</li>
+		</ul>
+	</article>
+	get_unamebyid($_SESSION['USER_ID']) -->
+</body>
+</html>

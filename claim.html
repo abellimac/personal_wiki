@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CLAIM</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h1 class="center">CLAIM</h1>
+	<div class="center">
+		<!-- <img width="500px" src="image\2018-05-16_1944.png" alt=""> -->
+	</div>
+	<article>
+		<h2>INTERFACE TABLE - ig_tables</h2>
+		<div>
+			table_name = <b>claims_summary</b><br>
+			table_id = <b>125</b>
+		</div>
+	</article>
+	<article>
+		<h2>Library</h2>
+		<ul>
+			<li>
+				<a href="http://ludo.cubicphuse.nl/jquery-treetable/">http://ludo.cubicphuse.nl/jquery-treetable/</a><br>
+				This library is responsible for displaying the options that can be displayed within the claims table
+			</li>
+		</ul>
+		<div>
+			
+		</div>
+	</article>
+	<article>
+		<h2>Calls</h2>
+		<ul>
+			<li>
+				function: <b>table_claims_summary</b>
+			</li>
+			<li>
+				claims_summary_tab_view.tpl
+			</li>
+			<li>
+				profiles/common/code_table/claims_summary.php <br>
+			</li>
+			<li>
+				includes/model/users_model.php #340
+			</li>
+			<li>
+				profiles/common/code_call/load_jtree_branch.php
+			</li>
+			<li>
+				includes/functions.jtable_get.php #168
+			</li>
+			<li>
+				includes/functions.jtable_get.php <b>254</b><br>
+				<div class="font-12">This code call again to <br>
+				profiles/common/code_table/claims_summary.php</div>
+			</li>
+		</ul>
+
+
+<pre>
+$level = 0;
+$sitecode = '';
+$parentNodeId = '';
+
+Abel Lima
+
+'INNER placements.job_seeker_id job_seekers.job_seeker_id',
+'INNER js_types.js_type_id job_seekers.js_type_id',
+
+'LEFT js_caseload.job_seeker_id placements.job_seeker_id',
+'LEFT claims.placement_id placements.placement_id',
+'LEFT unclaimed_records.placement_id placements.placement_id',
+'LEFT documents.placement_id placements.placement_id'
+
+
+Dependiend del permiso del usuario va a mostrar sierta informacion
+los permisos usados son:
+	users.priv_all_job_seekers
+	users.priv_site_job_seekers
+
+$level representa el arbol que se pretende desplegar
+click in Site = level = 0
+click in Job Seeker Type = 1
+
+cuando hacemos click para desplegar DES o JSA 
+ejecuta esta funcion
+	javascript/jtreetable.js:81 y en la fila 104 hace un add del html pare le hijo de DES o JSA
+
+ig_job_seekers
+ig_org_divisions
+ig_placements
+
+
+
+
+
+php scripts/report_user_access.php 2018/06/
+php scripts/user_enable_history_record_users_existing.php
+
+logs asociados,
+	documentos
+	que ocurre cuando un usuario tiene logs, en teoria no deveria borrarlo.
+tipe casting
+	
+</pre>		
+	</article>
+</body>
+</html>

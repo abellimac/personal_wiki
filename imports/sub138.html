@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sub138</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<h1 class="center">Sub138</h1>
+	<ul>
+		<li>
+			iignite_api.js #262
+		</li>
+		<li>
+			request.config #7898 <b>function name="claim_placement_import_confirm"</b>
+		</li>
+		<li>
+			claim_placement_import_confirm.php
+			<br>
+			Este es el php encargado de cargar y decidir como va a importar los datos del sub138.csv
+			<br>
+			Si las lineas del .csv son menores a 3000 utilizara la funcion importSub138(path, used_id);
+		</li>
+		<li>
+			<br>
+			<table border="1">
+				<tr>
+					<td>Extract Date</td>
+					<td>The date which the data was extracted from the Departments source system(s).</td>
+				</tr>
+				<tr>
+					<td>Site Name</td>
+					<td>The name of the site providing the services and at which the claim was created.</td>
+				</tr>
+				<tr>
+					<td>Site Cd</td>
+					<td>The four letter code that identifies the organisation’s site.</td>
+				</tr>
+				<tr>
+					<td>DES Program Type Cd</td>
+					<td>
+						The code that indicates which program the claim relates to.
+						Codes:
+						DESA – Disability Management Service
+						DESB – Employment Support Service
+					</td>
+				</tr>
+				<tr>
+					<td>Claim Rate Type</td>
+					<td>The rate type that is identified by the system for the claim.</td>
+				</tr>
+				<tr>
+					<td>Claim Rate Type Cd</td>
+					<td>Indicates the code that represents the claim rate type.</td>
+				</tr>
+				<tr>
+					<td>Base Rate Type</td>
+					<td>Some Claim Rate Types are broken up into more specific claim types.  The base rate type identified by the system for the claim. </td>
+				</tr>
+				<tr>
+					<td>Base Rate Type Cd</td>
+					<td>The code which represents the base rate type.</td>
+				</tr>
+				<tr>
+					<td>Claim Status</td>
+					<td>The claim status indicates the lifecycle stage that the claim is currently in.</td>
+				</tr>
+					
+				<tr>
+					<td>Claim Status Cd</td>
+					<td>The code which represents the claim status.</td>
+				</tr>
+				<tr>
+					<td>Creation Dt</td>
+					<td>The date that the claim was originally created.</td>
+				</tr>
+				<tr>
+					<td>Status Dt</td>
+					<td>The date at which the claim reached its current status.</td>
+				</tr>
+				<tr>
+					<td>Claim ID</td>
+				<td>The unique identifier assigned to each claim.</td>
+
+				</tr>
+				<tr>
+					<td>Seq Num</td>
+				<td>Claims have a sequence number higher than ‘1’ if they are created by bank reject processing or are the remainder claim at completion of acquittal of an advance. </td>
+
+				</tr>
+				<tr>
+					<td>Creation User ID</td>
+					<td>The user ID of the person who created the claim.</td>
+				</tr>
+				<tr>
+					<td>Special Claim Ind</td>
+					<td>
+						Indicates if the claim was lodged as a special claim.
+						Codes:
+						Y – Yes
+						N – No
+					</td>
+				</tr>
+				<tr>
+					<td>Job Seeker ID</td>
+					<td>The unique identifier assigned to the job seeker by DEEWR at the time of first registration.  This is the job seeker that the claim relates to.</td>
+				</tr>
+				<tr>
+					<td>Invoice Num</td>
+					<td>The invoice number allocated to the corresponding claim by the provider.</td>
+				</tr>
+				<tr>
+					<td>Job ID</td>
+					<td>Indicates the vacancy ID that the claim relates to.  This field will only be populated if the claim relates to a vacancy placement.</td>
+				</tr>
+				<tr>
+					<td>Job Ref ID</td>
+					<td>The unique identifier given to each vacancy referral.</td>
+				</tr>
+				<tr>
+					<td>Recovery Reason</td>
+					<td>If the claim has been recovered, then the reason will be displayed.</td>
+				</tr>
+				<tr>
+					<td>Claim Amount</td>
+					<td>The dollar($) amount of the claim (including GST).</td>
+				</tr>
+				<tr>
+					<td>GST Amount</td>
+					<td>The dollar($) amount of the GST component of the claim.</td>
+				</tr>
+				<tr>
+					<td>Approved Amount</td>
+					<td>The approved dollar($) amount of the claim.</td>
+				</tr>
+				<tr>
+					<td>Claim Currency Ind</td>
+					<td>
+					Indicates whether this is the most current claim record or not.
+					Codes:
+					Y – Yes
+					N – No
+				</td>
+				</tr>
+				<tr>
+					<td>Employer ID</td>
+				<td>
+					This is the unique identifier assigned to the employer and indicates the employer ID that the claim relates to.  This field will only be populated if the claim relates to a vacancy placement.
+				</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+
+</body>
+</html>
+
+
+

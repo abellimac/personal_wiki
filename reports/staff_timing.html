@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Staff Timing</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<div class="center">
+		<h1>Staff Timing - Report</h1>
+		<a href="../image/2018-05-17_1609.png" target="_black">
+			<img height="300" src="../image/2018-05-17_1609.png" alt="">
+		</a>
+	</div>
+	<article>
+		<h2>INTERFACE TABLE - ig_tables</h2>
+		name = <b>staff_timing_report</b> <br>
+		table_id = <b>155</b> <br>
+		report = <b>18</b>
+	</article>
+
+	<article>
+		<h2>BUILD BUTTON</h2>
+		<ul>
+			<li>
+				profiles/common/config/requests.config <br>
+				<code>
+					function name="report_preview_secure" <b>#1441</b>
+				</code>
+			</li>
+			<li>
+				profiles/common/code_interface/report_content.php
+			</li>
+			<li>
+				profiles/common/code_table/staff_timing_report.php
+			</li>
+<!-- 			<li>
+				profiles/common/templates/staff_timing_report.tpl
+			</li> -->
+		</ul>
+	</article>
+
+	<article>
+		<h2>MANTIS TASK</h2>
+		<ol>
+			<li>
+				<a href="http://mantis.bizexpress.com.au/view.php?id=6036" target="_black">0006036: New: Staff Timing Report</a>
+			</li>
+			<li>
+				<a href="http://mantis.bizexpress.com.au/view.php?id=6270" target="_black">0006270: staff timing report does not show total time spent</a>
+			</li>
+			<li>
+				<a href="http://mantis.bizexpress.com.au/view.php?id=6330" target="_black">0006330: DVJS reported: Staff timing report</a>
+			</li>
+		</ol>
+	</article>
+</body>
+</html>
