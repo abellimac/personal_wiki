@@ -268,13 +268,26 @@ hightValue = orders.filter(number => number > 100);`;
 document.getElementById('tricks-loopsarrowfunctions').innerHTML = tricksLoopsarrowfunctions;
 
 
-let data = [5, 4, 9, 14, 10, 7];
+// tricks-ofinfor
+let tricksOfinfor =
+`let data = [5, 4, 9, 14, 10, 7];
 for(let value of data) {
 	console.log(value);
-}
+}`;
+document.getElementById('tricks-ofinfor').innerHTML = tricksOfinfor;
 
-console.log(Math.min.apply(null, data));
-console.log(Math.max.apply(null, data));
+// tricks-minmax
+let tricksminmax =
+`let data = [1, 2, 3, 10, 9, 5];
+Math.min.apply(null, data); // result 1;
+Math.max.apply(null, data); // result 10`;
+document.getElementById('tricks-minmax').innerHTML = tricksminmax;
+
+
+
+
+// console.log(Math.min.apply(null, data));
+// console.log(Math.max.apply(null, data));
 // ----------------------------------------------
 // Delete a object property
 let person = {
@@ -284,13 +297,13 @@ let person = {
 	eyeColor: 'black'
 }
 
-console.table(person);
+// console.table(person);
 delete person.age;
-console.table(person);
+// console.table(person);
 // ----------------------------------------------
 
 
-throw Error('Error message here');
+// throw Error('Error message here');
 
 //----------------------------------------------
 // typeof
@@ -327,3 +340,36 @@ throw Error('Error message here');
 
 //   return capableBrowser;
 // };
+
+// -----------------------------------
+// OJBECT TO ARRAY
+// Object.entries(productValue);
+
+
+/*APPLY*/
+let myObject = {
+	num: 5
+};
+
+let myFunction = function(num1, num2) {
+	return this.num + num1 + num2;
+};
+
+// console.log( myFunction(3) );
+// console.log( myFunction.call(myObject, 3, 2) );
+// console.log( myFunction.apply(myObject, [3, 2]) );
+
+
+/*BIND*/
+
+let numberObject = {
+	num1: 5,
+	num2: 10
+};
+
+let numberFunction = function() {
+	return this.num1 + this.num2;
+};
+
+let bound = numberFunction.bind(numberObject);
+console.log( bound() );
