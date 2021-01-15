@@ -1,0 +1,266 @@
+data = `[
+    {
+        "id": 1,
+        "name": "CONCATINATION STRING WITH PLUS AND EQUAL OPERATOR +="
+    },
+    {
+        "id": 2,
+        "name": "FIND LENGTH ON STRING"
+    },
+    {
+        "id": 3,
+        "name": "BRACKET NOTATION TO FIND THE FIRST, NTH, LAST AND NTH TO LAST CHARACTER IN STRING"
+    },
+    {
+        "id": 4,
+        "name": "STORE MULTIPLE VALUES WITH ARRAYS"
+    },
+    {
+        "id": 5,
+        "name": "NESTED ARRAYS"
+    },
+    {
+        "id": 6,
+        "name": "ACCESS TO MULTI-DIMENSIONAL ARRAY WITH INDEXES"
+    },
+    {
+        "id": 7,
+        "name": "MANIPULATE ARRAY WITH PUSH()"
+    },
+    {
+        "id": 8,
+        "name": "MANIPULATE ARRAY WITH POP()"
+    },
+    {
+        "id": 9,
+        "name": "MANIPULATE ARRAY WITH SHIFT()"
+    },
+    {
+        "id": 10,
+        "name": "MANIPULATE ARRAY WITH UNSHIFT()"
+    },
+    {
+        "id": 11,
+        "name": "GLOBAL VS LOCAL SCOPE IN FUNCTIONS"
+    },
+    {
+        "id": 12,
+        "name": "STAND IN LINE = HACER COLA"
+    },
+    {
+        "id": 13,
+        "name": "COMPARATION WITH THE STRICT EQUALITY OPERATOR"
+    },
+    {
+        "id": 14,
+        "name": "COMPARATION WITH THE INEQUALITY OPERATOR"
+    },
+    {
+        "id": 15,
+        "name": "ELSE IF STATEMENT"
+    },
+    {
+        "id": 16,
+        "name": "SWITCH CASE STATEMENT"
+    },
+    {
+        "id": 17,
+        "name": "MULTIPLE IDENTICAL OPTIONS IN SWITCH STATEMENTS"
+    },
+    {
+        "id": 18,
+        "name": "RETURNING BOOLEAN VALUES FROM FUNCTIONS"
+    },
+    {
+        "id": 19,
+        "name": "AFTER"
+    },
+    {
+        "id": 20,
+        "name": "BUILD JAVASCRIPT OBJECTS"
+    },
+    {
+        "id": 21,
+        "name": "Delete property in object"
+    },
+    {
+        "id": 22,
+        "name": "USING OBJECTS FOR LOOKUPS"
+    },
+    {
+        "id": 23,
+        "name": "TESTING OBJECTS FOR PROPERTIES = obj.hasOwnProperty(prop)"
+    },
+    {
+        "id": 24,
+        "name": "ACCESSING NESTED OBJECTS"
+    },
+    {
+        "id": 25,
+        "name": "ACCESSING NESTED ARRAYS"
+    },
+    {
+        "id": 26,
+        "name": "RECORD COLLECTION"
+    },
+    {
+        "id": 100,
+        "name": "Fancy copy in javascript (NEW LEARN)"
+    },
+    {
+        "id": 100,
+        "name": "Fancy way to create a element if it doesn't exist (NEW LEARN)"
+    },
+    {
+        "id": 100,
+        "name": "undefined || value"
+    },
+    {
+        "id": 100,
+        "name": "INTERATE WITH THE WHILE LOOP"
+    },
+    {
+        "id": 100,
+        "name": "INTERATE WITH FOR LOOP"
+    },
+    {
+        "id": 100,
+        "name": "INTERATE EVEN NUMBERS WITH A FOR LOOP"
+    },
+    {
+        "id": 100,
+        "name": "INTERATE ODD NUMBERS WITH A FOR LOOP"
+    },
+    {
+        "id": 100,
+        "name": "COUNT BACKWARDS WITH A FOR LOOP"
+    },
+    {
+        "id": 100,
+        "name": "INTEREATE NESTED ARRAY"
+    },
+    {
+        "id": 100,
+        "name": "ITERATE WITH DO... WHILE LOOPS"
+    },
+    {
+        "id": 100,
+        "name": "GET RANDOM NUMBER IN JAVASCRIPT"
+    },
+    {
+        "id": 100,
+        "name": "RANDOM RANGE"
+    },
+    {
+        "id": 100,
+        "name": "parseInt"
+    },
+    {
+        "id": 100,
+        "name": "parseInt > Binary to Decimal"
+    },
+    {
+        "id": 100,
+        "name": "USE THE CONDITION (TERNARY) OPERATOR"
+    },
+    {
+        "id": 100,
+        "name": "return a === b; > Best way to do it"
+    },
+    {
+        "id": 100,
+        "name": "USE MULTIPLE CONDITION (TERNARY) OPERATOR"
+    },
+    {
+        "id": 100,
+        "name": "COMPARE SCOPES OF THE VAR AND LET KEYWORDS"
+    },
+    {
+        "id": 100,
+        "name": "Let keyword"
+    },
+    {
+        "id": 100,
+        "name": "MUTATE AN ARRAY WITH DECLARED CONST"
+    },
+    {
+        "id": 100,
+        "name": "S = [4,5,6];  NOT WORK THAT IS CORRECT"
+    },
+    {
+        "id": 100,
+        "name": "PREVENT OBJECT MUTATION"
+    },
+    {
+        "id": 100,
+        "name": "Object.freeze(MATH_CONSTANTS); // Avoid a object can be mutated"
+    },
+    {
+        "id": 100,
+        "name": "USE ARROW FUNCTIONS TO WRITE CONCISE ANONYMOUS FUNCTIONS"
+    },
+    {
+        "id": 100,
+        "name": "Normal anonymous function"
+    },
+    {
+        "id": 100,
+        "name": "Arrow Function"
+    },
+    {
+        "id": 100,
+        "name": "WRITE ARROW FUNCTIONS WITH PARAMETERS"
+    },
+    {
+        "id": 100,
+        "name": "WRITE HIGHER ORDER ARROW FUNCTIONS"
+    },
+    {
+        "id": 100,
+        "name": "#2 set defaul value for a parameters"
+    },
+    {
+        "id": 100,
+        "name": "USER THE REST OPERATOR WITH FUNCTION PARAMETERS"
+    },
+    {
+        "id": 100,
+        "name": "const arrs = [x, y, z]; // we can create array with ...namearray"
+    },
+    {
+        "id": 100,
+        "name": "USE THE SPREAD OPERATOR TO EVALUATE ARRAYS IN-PLACE"
+    },
+    {
+        "id": 100,
+        "name": "USE DESTRUCTURING ASSIGNMENT TO ASSIGN VARIABLES FROM OBJECTS"
+    },
+    {
+        "id": 100,
+        "name": "DESTRUCTURING ASSIGNMENT WITH NESTED OBJECTS"
+    },
+    {
+        "id": 100,
+        "name": "const {max: maxOfTomorrow} = forecast.tomorrow;"
+    },
+    {
+        "id": 100,
+        "name": "USE DESTRUCTURING ASSIGMENT TO ASSIGN VARIABLES FROM ARRAYS"
+    },
+    {
+        "id": 100,
+        "name": "USE DESTRUCTURING ASSIGNMENT WITH THE REST OPERATOR"
+    },
+    {
+        "id": 100,
+        "name": "USE DESTRUCTURING ASSIGNMENT TO PASS AN OBJECT AS A FUNCTION'S PARAMETERS"
+    },
+    {
+        "id": 100,
+        "name": "CREATE STRING USING TEMPLATE LITERALS"
+    },
+    {
+        "id": 100,
+        "name": "WRITE CONCISE OBJECT LITERAL DECLARATIONS USING SIMPLE FIELDS"
+    }
+]`;
